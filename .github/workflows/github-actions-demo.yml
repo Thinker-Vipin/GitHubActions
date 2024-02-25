@@ -8,6 +8,7 @@ jobs:
         runs-on: ubuntu-latest
         env:
             JOB_ENV: "Job level env var"
+        environment: ${{ vars.RepoEnvironment }}
         steps:
             - run: echo "List some common GitHub Actions environment variable names:"
             - run: echo -e "github.actor - ${{ github.actor }}" \
@@ -23,7 +24,7 @@ jobs:
                         "\nJOB_ENV - $JOB_ENV" \
                         "\nSTEP_ENV - $STEP_ENV" \
                         "\nREPOACTIONVAR - ${{ vars.REPOACTIONVAR }}" \
-                        "\nREPOENVIORNMENTVAR - ${{ vars.RepoEnvironment.REPOENVIORNMENTVAR }}"
+                        "\nREPOENVIORNMENTVAR - ${{ vars.REPOENVIORNMENTVAR }}"
               env:
                 STEP_ENV: "Step level env var"
             - run: env
