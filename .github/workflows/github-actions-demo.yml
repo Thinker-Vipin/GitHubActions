@@ -2,6 +2,19 @@
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
 jobs:
+    Github-Actions-Environment-Variables:
+        runs-on: ubuntu-latest
+        steps:
+            - run: echo "List some common GitHub Actions environment variable names:"
+            - run: echo "github.actor - ${{ github.actor }}" \
+                        "github.event_name - ${{ github.event_name }}" \
+                        "job.name - ${{ job.name }}" \
+                        "runner.os - ${{ runner.os }}" \
+                        "github.repository - ${{ github.repository }}" \
+                        "github.ref - ${{ github.ref }}" \
+                        "github.workspace - ${{ github.workspace }}" \
+                        "job.status - ${{ job.status }}" \
+
     Explore-Github-Actions:
         runs-on: ubuntu-latest
         steps:
@@ -16,7 +29,3 @@ jobs:
               run: |
                 ls --recursive ${{ github.workspace }}
             - run: echo "🍏 This job's status is ${{ job.status }}."
-    Explore-Github-Actions-Job2:
-        runs-on: ubuntu-latest
-        steps:
-            - run: echo "This is a parallel job?"
