@@ -1,19 +1,30 @@
 ﻿name: GitHub Actions Demo
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
+env:
+    WORKFLOW_ENV: "Workflow level env var"
 jobs:
     Github-Actions-Environment-Variables:
         runs-on: ubuntu-latest
+        env:
+            JOB_ENV: "Job level env var"
         steps:
             - run: echo "List some common GitHub Actions environment variable names:"
-            - run: echo "github.actor - ${{ github.actor }}" \
-                        "github.event_name - ${{ github.event_name }}" \
-                        "job.name - ${{ job.name }}" \
-                        "runner.os - ${{ runner.os }}" \
-                        "github.repository - ${{ github.repository }}" \
-                        "github.ref - ${{ github.ref }}" \
-                        "github.workspace - ${{ github.workspace }}" \
-                        "job.status - ${{ job.status }}" \
+            - run: printf "github.actor - ${{ github.actor }}" \
+                        "\ngithub.action - ${{ github.action }}" \
+                        "\ngithub.event_name - ${{ github.event_name }}" \
+                        "\ngithub.job - ${{ github.job }}" \
+                        "\nrunner.os - ${{ runner.os }}" \
+                        "\ngithub.repository - ${{ github.repository }}" \
+                        "\ngithub.ref - ${{ github.ref }}" \
+                        "\ngithub.workspace - ${{ github.workspace }}" \
+                        "\njob.status - ${{ job.status }}" \
+                        "\nWORKFLOW_ENV - ${{ WORKFLOW_ENV }}" \
+                        "\nWORKFLOW_ENV - $WORKFLOW_ENV" \
+                        "\nJOB_ENV - JOB_ENV" \
+                        "\nSTEP_ENV - $STEP_ENV"
+              env:
+                STEP_ENV: "Step level env var"
 
     Explore-Github-Actions:
         runs-on: ubuntu-latest
