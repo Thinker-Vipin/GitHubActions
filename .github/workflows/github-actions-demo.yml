@@ -23,7 +23,7 @@ jobs:
                         "\nJOB_ENV - $JOB_ENV" \
                         "\nSTEP_ENV - $STEP_ENV" \
                         "\nREPOACTIONVAR - ${{ vars.REPOACTIONVAR }}" \
-                        "\nREPOENVIORNMENTVAR - ${{ vars.REPOENVIORNMENTVAR }}"
+                        "\nREPOENVIORNMENTVAR - ${{ vars.RepoEnvironment }}"
               env:
                 STEP_ENV: "Step level env var"
             - run: env
