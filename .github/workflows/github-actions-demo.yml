@@ -19,4 +19,4 @@ jobs:
     Explore-Github-Actions-Job2:
         runs-on: ubuntu-latest
         steps:
-            -run: echo "This is a parallel job?"
+            - run: echo "This is a parallel job?"
