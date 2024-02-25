@@ -1,8 +1,10 @@
 ﻿name: GitHub Actions Demo
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
+
 env:
-    WORKFLOW_ENV: "Workflow level env var"
+    WORKFLOW_ENV: Workflow-level-env-var"
+
 jobs:
     Github-Actions-Environment-Variables:
         runs-on: ubuntu-latest
