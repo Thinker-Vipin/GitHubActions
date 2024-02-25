@@ -21,7 +21,6 @@ jobs:
                         "\ngithub.ref - ${{ github.ref }}" \
                         "\ngithub.workspace - ${{ github.workspace }}" \
                         "\njob.status - ${{ job.status }}" \
-                        "\nWORKFLOW_ENV - ${{ WORKFLOW_ENV }}" \
                         "\nWORKFLOW_ENV - $WORKFLOW_ENV" \
                         "\nJOB_ENV - JOB_ENV" \
                         "\nSTEP_ENV - $STEP_ENV"
