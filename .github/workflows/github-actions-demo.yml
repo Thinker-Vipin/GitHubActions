@@ -1,10 +1,8 @@
 ﻿name: GitHub Actions Demo
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
-
 env:
     WORKFLOW_ENV: Workflow-level-env-var
-
 jobs:
     Github-Actions-Environment-Variables:
         runs-on: ubuntu-latest
@@ -12,7 +10,7 @@ jobs:
             JOB_ENV: "Job level env var"
         steps:
             - run: echo "List some common GitHub Actions environment variable names:"
-            - run: printf "github.actor - ${{ github.actor }}" \
+            - run: echo -e "github.actor - ${{ github.actor }}" \
                         "\ngithub.action - ${{ github.action }}" \
                         "\ngithub.event_name - ${{ github.event_name }}" \
                         "\ngithub.job - ${{ github.job }}" \
@@ -22,10 +20,11 @@ jobs:
                         "\ngithub.workspace - ${{ github.workspace }}" \
                         "\njob.status - ${{ job.status }}" \
                         "\nWORKFLOW_ENV - $WORKFLOW_ENV" \
-                        "\nJOB_ENV - JOB_ENV" \
+                        "\nJOB_ENV - $JOB_ENV" \
                         "\nSTEP_ENV - $STEP_ENV"
               env:
                 STEP_ENV: "Step level env var"
+            - run: env
 
     Explore-Github-Actions:
         runs-on: ubuntu-latest
