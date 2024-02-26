@@ -8,7 +8,7 @@ jobs:
         runs-on: ubuntu-latest
         env:
             JOB_ENV: "Job level env var"
-            REPOENV: ${{ vars.RepoEnvironment }}
+            REPOENV: ${{ vars.ENVIRONMENT_RepoEnvironment }}
         environment: ${{ vars.ENVIRONMENT_TEST_ENV }}
         steps:
             - run: echo "List some common GitHub Actions environment variable names:"
@@ -31,10 +31,14 @@ jobs:
                         "\nREPOENVIRONMENTSECRET - ${{ secrets.TESTENVSECRET }}"
               env:
                 STEP_ENV: "Step level env var"
-            - name: Dump env context
+            # - name: Dump env context
+            #   env:
+            #     ENV_CONTEXT: ${{ toJson(env) }}
+            #   run: echo "$ENV_CONTEXT"
+            - name: Dump vars context
               env:
-                ENV_CONTEXT: ${{ toJson(env) }}
-              run: echo "$ENV_CONTEXT"
+                $VARS_CONTEXT: ${{ toJson(vars) }}
+              run: echo "$VARS_CONTEXT"
             # - name: Dump GitHub context
             #   env:
             #     GITHUB_CONTEXT: ${{ toJson(github) }}
