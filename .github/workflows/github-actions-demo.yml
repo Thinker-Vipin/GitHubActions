@@ -8,8 +8,8 @@ jobs:
         runs-on: ubuntu-latest
         env:
             JOB_ENV: "Job level env var"
-            REPOENV: ${{ vars.TEST_ENV }}
-        # environment: ${{ vars.TEST_ENV }}
+            # REPOENV: ${{ vars.TEST_ENV }}
+        environment: TEST_ENV
         steps:
             - run: echo "List some common GitHub Actions environment variable names:"
             - run: echo "REPOENV - $JOB_ENV - ${{ vars.USE_VARIABLES }} - $REPOENV and ${{ vars[env.REPOENV].TESTENVVAR }} and ${{ secrets[env.REPOENV].TESTENVSECRET }}"
@@ -27,8 +27,8 @@ jobs:
                         "\nSTEP_ENV - $STEP_ENV" \
                         "\nREPOACTIONVAR - ${{ vars.REPOACTIONVAR }}" \
                         "\nREPOACTIONSECRET - ${{ secrets.REPOACTIONSECRET }}" \
-                        "\nREPOENVIRONMENTVAR - ${{ vars[env.REPOENV].REPOENVIRONMENTVAR }}" \
-                        "\nREPOENVIRONMENTSECRET - ${{ vars[env.REPOENV].REPOENVIRONMENTSECRET }}"
+                        "\nREPOENVIRONMENTVAR - ${{ vars.REPOENVIRONMENTVAR }}" \
+                        "\nREPOENVIRONMENTSECRET - ${{ secrets.REPOENVIRONMENTSECRET }}"
               # env:
               #   STEP_ENV: "Step level env var"
             - run: env
