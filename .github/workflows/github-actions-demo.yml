@@ -12,7 +12,7 @@ jobs:
         # environment: ${{ vars.TEST_ENV }}
         steps:
             - run: echo "List some common GitHub Actions environment variable names:"
-            - run: echo "REPOENV - $JOB_ENV - $REPOENV and ${{ vars[env.REPOENV].TESTENVVAR }} and ${{ secrets[env.REPOENV].TESTENVSECRET }}"
+            - run: echo "REPOENV - $JOB_ENV - ${{ vars.USE_VARIABLES }} - $REPOENV and ${{ vars[env.REPOENV].TESTENVVAR }} and ${{ secrets[env.REPOENV].TESTENVSECRET }}"
             - run: echo -e "github.actor - ${{ github.actor }}" \
                         "\ngithub.action - ${{ github.action }}" \
                         "\ngithub.event_name - ${{ github.event_name }}" \
