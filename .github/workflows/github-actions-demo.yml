@@ -9,7 +9,7 @@ jobs:
         env:
             JOB_ENV: "Job level env var"
             REPOENV: ${{ vars.RepoEnvironment }}
-        environment: ${{ vars.TEST_ENV }}
+        environment: '${{ vars.TEST_ENV }}'
         steps:
             - run: echo "List some common GitHub Actions environment variable names:"
             - run: echo "REPOENV - $JOB_ENV - ${{ vars.USE_VARIABLES }} - $REPOENV and ${{ vars[env.REPOENV].TESTENVVAR }} and ${{ secrets[env.REPOENV].TESTENVSECRET }}"
