@@ -11,7 +11,7 @@ jobs:
         environment: ${{ vars.TEST_ENV && 'TEST_ENV' || 'RepoEnvironment' }}
         steps:
             - run: echo "List some common GitHub Actions environment variable names:"
-            - run: echo "REPOENV - ${{ vars }}"
+            - run: echo "REPOENV - ${{ toJson(vars) }}"
             - run: echo -e "github.actor - ${{ github.actor }}" \
                         "\ngithub.action - ${{ github.action }}" \
                         "\ngithub.event_name - ${{ github.event_name }}" \
