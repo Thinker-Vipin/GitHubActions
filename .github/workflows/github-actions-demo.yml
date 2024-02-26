@@ -27,8 +27,8 @@ jobs:
                         "\nSTEP_ENV - $STEP_ENV" \
                         "\nREPOACTIONVAR - ${{ vars.REPOACTIONVAR }}" \
                         "\nREPOACTIONSECRET - ${{ secrets.REPOACTIONSECRET }}" \
-                        "\nREPOENVIRONMENTVAR - ${{ vars.TEST_ENV.REPOENVIRONMENTVAR }}" \
-                        "\nREPOENVIRONMENTSECRET - ${{ secrets.TEST_ENV.REPOENVIRONMENTSECRET }}"
+                        "\nREPOENVIRONMENTVAR - ${{ vars.TEST_ENV.TESTENVVAR }}" \
+                        "\nREPOENVIRONMENTSECRET - ${{ secrets.TEST_ENV.TESTENVVAR }}"
               # env:
               #   STEP_ENV: "Step level env var"
             - run: env

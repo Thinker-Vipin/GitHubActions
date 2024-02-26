@@ -10,6 +10,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{02973293-22BD-4188-B7BC-065D4B1AFFC6}"
 	ProjectSection(SolutionItems) = preProject
 		.github\workflows\github-actions-demo.yml = .github\workflows\github-actions-demo.yml
+		Notes.txt = Notes.txt
 	EndProjectSection
 EndProject
 Global
