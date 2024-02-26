@@ -8,7 +8,7 @@ jobs:
         runs-on: ubuntu-latest
         env:
             JOB_ENV: "Job level env var"
-        environment: ${{ vars.TEST_ENV && 'TEST_ENV' || 'RepoEnvironment' }}
+        # environment: ${{ vars.TEST_ENV && 'TEST_ENV' || 'RepoEnvironment' }}
         steps:
             - run: echo "List some common GitHub Actions environment variable names:"
             - run: echo "REPOENV - ${{ toJson(vars) }}"
