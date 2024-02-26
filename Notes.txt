@@ -1,0 +1,21 @@
+Overview
+	Event, Job(s), Runner, Steps (run (script), uses (action))
+Actions
+	Find in marketplace in GitHub (edit yaml), add, customize.
+	Use public repos, docker image (uses: docker://alpine:3.0), within repo (uses: ./.github/actions/my-custom-workflow)
+	Use tag (@v1.0), branch (@main), commit hash (@<SHA>)
+	inputs (file-path: description: "some desc", required: true, default: "somefile.js") and outputs (results-file: description: "some desc")
+Features
+	Variable - add under env within workflow, job, or step
+	Script - bash <script>, <executable script> (add +X to file in repo), checkout - chmod +X on script - <executable script>
+	Artifact - create file (shell: bash, run: | expr 1 + 1 > somefile.txt), upload file (uses: actions/upload-artifact@v4, with: name: <name>, path: somefile.txt)
+			 - (job2 - needs: upload-job); download file (uses: actions/download-artifact@v4, with: name: <name>)
+Expressions 
+	${{ }}
+	Litral - boolean null number string (without or with single quote only)
+	Operator - Usual
+	Comparison - fromJSON() for string to number, string comparison case insensitive
+	Ternary - ${{ <cond> && <true-val> || <false-Val> }}
+	Function - contains, startsWith, endsWith, format, join, toJSON, fromJSON, hashFiles, success, always, cancelled, failure, object filters
+Contexts
+	
