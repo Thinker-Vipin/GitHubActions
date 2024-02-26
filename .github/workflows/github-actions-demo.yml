@@ -9,7 +9,7 @@ jobs:
         env:
             JOB_ENV: "Job level env var"
             REPOENV: ${{ vars.RepoEnvironment }}
-        environment: 'TEST_ENV' # ${{ vars.TEST_ENV }}
+        environment: ${{ vars.TEST_ENV }}
         steps:
             - run: echo "List some common GitHub Actions environment variable names:"
             - run: echo "REPOENV - $JOB_ENV - ${{ vars.USE_VARIABLES }} - $REPOENV and ${{ vars[env.REPOENV].TESTENVVAR }} and ${{ secrets[env.REPOENV].TESTENVSECRET }}"
@@ -29,8 +29,8 @@ jobs:
                         "\nREPOACTIONSECRET - ${{ secrets.REPOACTIONSECRET }}" \
                         "\nREPOENVIRONMENTVAR - ${{ vars.TESTENVVAR }}" \
                         "\nREPOENVIRONMENTSECRET - ${{ secrets.TESTENVSECRET }}"
-              # env:
-              #   STEP_ENV: "Step level env var"
+              env:
+                STEP_ENV: "Step level env var"
             - name: Dump env context
               env:
                 ENV_CONTEXT: ${{ toJson(env) }}
